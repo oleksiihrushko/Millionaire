@@ -3,7 +3,7 @@ import styles from "./Game.module.scss";
 import GameField from "./gameField/GameField";
 import Menu from "./menu/Menu";
 
-const Game = () => {
+const Game = ({ setPage }) => {
   const [translateX, setTranslateX] = useState("100vw");
   const [showMenu, setShowMenu] = useState(false);
 
@@ -30,7 +30,7 @@ const Game = () => {
             onClick={toggleOpenMenu}
           ></button>
         )}
-        <GameField />
+        <GameField setPage={setPage} />
       </div>
       {window.innerWidth < 768 ? (
         showMenu && (

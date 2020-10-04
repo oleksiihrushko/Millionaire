@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const Result = () => {
   const questionIdx = useSelector((state) => state.qIdx);
-
   return (
     <div className={styles.home}>
       <img className={styles.hand} src={hand} alt="hand" />
@@ -17,7 +16,7 @@ const Result = () => {
         ) : (
           <h2>{questionList[questionIdx - 1].price}$ earned</h2>
         )}
-        <a className={styles.link} href="/game">
+        <a className={styles.link} href="/">
           Try again
         </a>
       </div>

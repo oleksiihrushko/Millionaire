@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import pageSlice from "../../../redux/page/pageSlice";
 import qIdxSlice from "../../../redux/qIdx/qIdxSlice";
 import wrongAnswerSlice from "../../../redux/wrongAnswer/wrongAnswerSlice";
 import styles from "./GameField.module.scss";
@@ -21,7 +21,6 @@ const QuestionSvg = ({ variant, isCorrect, answer }) => {
   }
 
   const dispatch = useDispatch();
-  let history = useHistory();
 
   const clickHandler = () => {
     if (isCorrect) {
@@ -34,7 +33,7 @@ const QuestionSvg = ({ variant, isCorrect, answer }) => {
       setStatus("incorrect");
       dispatch(wrongAnswerSlice.actions.setWrongAnswer());
       setTimeout(() => {
-        history.push("/result");
+        dispatch(pageSlice.actions.setPage("result"));
       }, 2000);
     }
   };
