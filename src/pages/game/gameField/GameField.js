@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 
 const getAnswers = (obj) => {
   const wrongAnswers = obj.wrongAnswers;
-  shuffle(wrongAnswers);
+  shuffle(wrongAnswers); //перемешиваем все неправильные
   const correctAnswers = obj.correctAnswers;
-  shuffle(correctAnswers);
-  const answers = [...wrongAnswers.slice(0, 3), ...correctAnswers.slice(0, 1)];
-  shuffle(answers);
+  shuffle(correctAnswers); //перемешиваем все правильные
+  const answers = [...wrongAnswers.slice(0, 3), ...correctAnswers.slice(0, 1)]; //складываем 3 неправильных ответа и 1 правильный
+  shuffle(answers); //перемешиваем доступные ответы
 
   return answers;
 };
