@@ -30,7 +30,11 @@
 }
 
 .svg {
-  margin-bottom: 32px;
+  margin-bottom: 8px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 32px;
+  }
 
   &:hover path {
     stroke: #ff8b37;
