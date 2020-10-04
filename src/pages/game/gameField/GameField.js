@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./GameField.module.scss";
 import QuestionSvg from "./QuestionSvg";
 import { questionList } from "../../../questions.json";
 import { useSelector } from "react-redux";
 
+const shuffledQuestions = [];
+const variants = ["A", "B", "C", "D"];
+
 const getAnswers = (obj) => {
   const wrongAnswers = obj.wrongAnswers;
-  shuffle(wrongAnswers); //перемешиваем все неправильные
+  shuffle(wrongAnswers);
   const correctAnswers = obj.correctAnswers;
-  shuffle(correctAnswers); //перемешиваем все правильные
-  const answers = [...wrongAnswers.slice(0, 3), ...correctAnswers.slice(0, 1)]; //складываем 3 неправильных ответа и 1 правильный
-  shuffle(answers); //перемешиваем доступные ответы
+  shuffle(correctAnswers);
+  const answers = [...wrongAnswers.slice(0, 3), correctAnswers[0]];
+  shuffle(answers);
 
   return answers;
 };
@@ -22,18 +25,15 @@ function shuffle(array) {
   }
 }
 
-let shuffledQuestions = [];
-
 for (let i = 0; i < questionList.length; i++) {
   shuffledQuestions.push(getAnswers(questionList[i]));
 }
-
-const vars = ["A", "B", "C", "D"];
 
 const GameField = () => {
   const questionIdx = useSelector((state) => state.qIdx);
   const question = questionList[questionIdx].question;
   const answers = shuffledQuestions[questionIdx];
+  const [clicked, setClicked] = useState(false);
 
   return (
     <div className={styles.gamefield}>
@@ -42,9 +42,11 @@ const GameField = () => {
         {answers.map((answer, idx) => (
           <QuestionSvg
             key={idx}
-            variant={vars[idx]}
+            variant={variants[idx]}
             isCorrect={answer.isCorrect}
             answer={answer.content}
+            clicked={clicked}
+            setClicked={setClicked}
           />
         ))}
       </div>

@@ -18,7 +18,7 @@ const MenuSvg = ({ color, fontColor, price }) => {
         fill="white"
         stroke={color}
       />
-      <text x="160" y="22" text-anchor="middle" fontSize="14" fill={fontColor}>
+      <text x="160" y="22" textAnchor="middle" fontSize="14" fill={fontColor}>
         {price}
       </text>
     </svg>
@@ -38,7 +38,7 @@ const MenuSvg = ({ color, fontColor, price }) => {
         fill="white"
         stroke={color}
       />
-      <text x="188" y="28" text-anchor="middle" fontSize="20" fill={fontColor}>
+      <text x="188" y="28" textAnchor="middle" fontSize="20" fill={fontColor}>
         {price}
       </text>
     </svg>

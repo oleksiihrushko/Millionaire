@@ -17,10 +17,7 @@ const Result = () => {
         ) : (
           <h2>{questionList[questionIdx - 1].price}$ earned</h2>
         )}
-        <a
-          className={styles.link}
-          href="https://oleksiihrushko.github.io/millionaire/"
-        >
+        <a className={styles.link} href="/millionaire">
           Try again
         </a>
       </div>

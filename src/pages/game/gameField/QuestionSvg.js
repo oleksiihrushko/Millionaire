@@ -11,21 +11,25 @@ const svgCfg = {
   incorrect: ["#EC6259", "#FDEEED"],
 };
 
-const QuestionSvg = ({ variant, isCorrect, answer }) => {
+const QuestionSvg = ({ variant, isCorrect, answer, clicked, setClicked }) => {
   const [status, setStatus] = useState("inactive");
-
   const wrongAnswer = useSelector((state) => state.wrongAnswer);
+  const dispatch = useDispatch();
 
   if (wrongAnswer && isCorrect) {
     status !== "correct" && setStatus("correct");
   }
 
-  const dispatch = useDispatch();
-
   const clickHandler = () => {
+    if (clicked) {
+      return;
+    }
+
+    setClicked(true);
     if (isCorrect) {
       setStatus("correct");
       setTimeout(() => {
+        setClicked(false);
         dispatch(qIdxSlice.actions.nextQuestion());
         setStatus("inactive");
       }, 2000);
@@ -33,6 +37,7 @@ const QuestionSvg = ({ variant, isCorrect, answer }) => {
       setStatus("incorrect");
       dispatch(wrongAnswerSlice.actions.setWrongAnswer());
       setTimeout(() => {
+        setClicked(false);
         dispatch(pageSlice.actions.setPage("result"));
       }, 2000);
     }
