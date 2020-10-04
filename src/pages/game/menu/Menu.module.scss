@@ -2,7 +2,7 @@
   position: relative;
   top: 50px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1680px) {
     top: 150px;
   }
 }
@@ -12,6 +12,10 @@
   margin-bottom: 8px;
 
   @media (min-width: 1280px) {
+    margin-bottom: 25px;
+  }
+
+  @media (min-width: 1680px) {
     margin-bottom: 30px;
   }
 

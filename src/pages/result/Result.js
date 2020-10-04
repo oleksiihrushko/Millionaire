@@ -8,7 +8,7 @@ const Result = () => {
   const questionIdx = useSelector((state) => state.qIdx);
 
   return (
-    <div className={styles.home}>
+    <div className={`${styles.home} ${styles.home__result}`}>
       <img className={styles.hand} src={hand} alt="hand" />
       <div className={styles.wrapper}>
         <span>Total Score</span>

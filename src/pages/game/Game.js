@@ -20,7 +20,6 @@ const Game = ({ setPage }) => {
       }, 600);
     }
   };
-
   return (
     <div className={styles.container}>
       <div className={styles.game}>

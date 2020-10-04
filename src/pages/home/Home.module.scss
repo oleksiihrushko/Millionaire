@@ -7,6 +7,10 @@
   height: 100vh;
   background: linear-gradient(to bottom right, white 50%, #fff3eb 50%);
 
+  &__result {
+    background: white;
+  }
+
   @media (min-width: 768px) {
     flex-direction: row;
   }

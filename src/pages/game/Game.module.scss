@@ -54,6 +54,10 @@
     background-color: transparent;
     background-repeat: no-repeat;
 
+    @media (min-resolution: 192dpi) {
+      background-image: url("../../images/burger@2x.png");
+    }
+
     &Wrapper {
       height: 60px;
     }
@@ -62,6 +66,10 @@
       width: 14px;
       height: 14px;
       background-image: url("../../images/close.png");
+
+      @media (min-resolution: 192dpi) {
+        background-image: url("../../images/close@2x.png");
+      }
     }
   }
 }
