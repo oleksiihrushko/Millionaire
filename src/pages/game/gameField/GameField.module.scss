@@ -1,0 +1,38 @@
+.gamefield {
+  // position: relative;
+  @media (max-width: 767px) {
+    padding-top: 136px;
+  }
+}
+
+.question {
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.answers {
+  &__wrapper {
+    position: absolute;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 1024px) {
+      width: 811px;
+      bottom: 122px;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.svg {
+  margin-bottom: 32px;
+
+  &:hover path {
+    stroke: #ff8b37;
+  }
+}

@@ -1,0 +1,22 @@
+.menu {
+  position: relative;
+  top: 50px;
+
+  @media (min-width: 1024px) {
+    top: 150px;
+  }
+}
+
+.svg {
+  height: 32px;
+  margin-bottom: 8px;
+
+  @media (min-width: 1024px) {
+    margin-bottom: 30px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}

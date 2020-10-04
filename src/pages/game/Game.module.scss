@@ -1,0 +1,67 @@
+.container {
+  position: relative;
+  display: flex;
+  height: 100vh;
+
+  @media (max-width: 767px) {
+    width: 100vw;
+  }
+
+  @media (min-width: 768px) {
+    // width: 200vw;
+  }
+}
+
+.game {
+  @media (max-width: 767px) {
+    height: 100vh;
+    position: absolute;
+    width: 100vw;
+
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    width: calc(100% - 302px);
+    background: #f5f5f7;
+    padding: 15vh 0 0 5vw;
+  }
+}
+
+.menu {
+  transition: all 0.6s ease;
+
+  @media (max-width: 767px) {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #f5f5f7;
+  }
+
+  @media (min-width: 768px) {
+    width: 302px;
+  }
+
+  &__btn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    border: 0;
+    width: 16px;
+    height: 14px;
+    background-image: url("../../images/burger.png");
+    background-size: contain;
+    background-color: transparent;
+    background-repeat: no-repeat;
+
+    &Wrapper {
+      height: 60px;
+    }
+
+    &Close {
+      width: 14px;
+      height: 14px;
+      background-image: url("../../images/close.png");
+    }
+  }
+}
